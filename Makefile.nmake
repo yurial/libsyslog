@@ -1,0 +1,19 @@
+# For optimization and warnings
+CFLAGS=/nologo
+CPPFLAGS=$(CFLAGS) /EHsc /Ox /W3 /wd4355 /wd4290
+
+LIBFLAGS=/nologo
+
+OBJS=syslogpp.obj
+
+LIBS=syslog.dll
+
+all: syslog.dll
+
+libs: $(LIBS)
+
+syslog.dll: src/syslog.obj
+	link /dll $(LIBFLAGS) /def:src/syslog.def syslog.obj /out:syslog.dll
+
+clean:
+	del $(OBJS) $(LIBS) syslog.exp syslog.lib

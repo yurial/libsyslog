@@ -1,0 +1,6 @@
+EXPORTS
+openlog
+syslog
+closelog
+vsyslog
+setlogmask
